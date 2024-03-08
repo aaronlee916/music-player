@@ -9,25 +9,65 @@
       ></u-search>
     </view>
     <view>
-      <u-swiper :list="list" imgMode="scaleToFill" height="300px" indicator indicatorMode="line"></u-swiper>
+      <view v-if="tabBar==='recommend'">
+        <Recommend />
+      </view>
+      <view v-else-if="tabBar==='explore'">
+        <view>explore</view>
+      </view>
+      <view v-else-if="tabBar==='moments'">
+        <view>moments</view>
+      </view>
+      <view v-else-if="tabBar==='my'">
+        <view>my</view>
+      </view>
+    </view>
+    <view>
+      <u-tabbar
+        :fixed="true"
+        :placeholder="true"
+        :safeAreaInsetBottom="true"
+      >
+        <u-tabbar-item text="推荐" icon="home" @click="()=>tabBar='recommend'"></u-tabbar-item>
+        <u-tabbar-item
+          text="发现"
+          icon="moments"
+          @click="()=>tabBar='explore'"
+        ></u-tabbar-item>
+        <u-tabbar-item
+          text="动态"
+          icon="weixin-fill"
+          @click="()=>tabBar='moments'"
+        ></u-tabbar-item>
+        <u-tabbar-item
+          text="我的"
+          icon="account"
+          @click="()=>tabBar='my'"
+        ></u-tabbar-item>
+      </u-tabbar>
     </view>
   </view>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Recommend from '@/pages/components/Recommend.vue'
 
 export default Vue.extend({
   data() {
     let keyword = "";
-    let list: string[] = [require("../../assets/images/angel.jpeg"),require("../../assets/images/dream.jpeg")];
+    let tabBar='recommend'
+    
     return {
       keyword,
-      list,
+      tabBar,
     };
   },
   onLoad() {},
   methods: {},
+  components:{
+    Recommend
+  }
 });
 </script>
 
