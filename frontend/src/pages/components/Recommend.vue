@@ -2,11 +2,18 @@
 import Vue from "vue";
 export default Vue.extend({
   data() {
-    return {};
+    return {
+      src:'/frontend/src/assets/images/cover1.jpeg'
+    };
   },
 });
 </script>
 <template>
-  <h1>早上好</h1>
+  <view>
+    <view>早上好</view>
+    <view>
+      <u-image :src="src"> </u-image>
+    </view>
+  </view>
 </template>
 <style></style>
