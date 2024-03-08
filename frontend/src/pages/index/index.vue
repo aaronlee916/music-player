@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="topContainer">
-      <u-icon name="list"></u-icon>
+      <u-icon name="list" @click="handleMiscClick"></u-icon>
       <u-search
         placeholder="请输入你想听的歌曲名称..."
         v-model="keyword"
@@ -64,7 +64,11 @@ export default Vue.extend({
     };
   },
   onLoad() {},
-  methods: {},
+  methods: {
+    handleMiscClick(){
+      
+    }
+  },
   components:{
     Recommend
   }
